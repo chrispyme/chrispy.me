@@ -1,21 +1,25 @@
 /* Make body text slightly smaller */
 body {
-    font-size: 0.95rem;
-  }
-  
-  /* Adjust post titles */
-  h1, h2, h3 {
-    font-size: 1.8rem;
-  }
-  
-  /* Shrink home page title in _index.md */
-  .home h1 {
-    font-size: 1.6rem;
-  }
-  
-  /* Optional: Make markdown paragraphs smaller */
-  .content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
+  font-size: 0.95rem;
+}
+
+.icon-row {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.icon-row a {
+  margin: 0 10px;
+  display: inline-block;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.icon-row a:hover {
+  opacity: 1;
+}
+
+.icon-row img {
+  width: 30px;
+  filter: invert(1);
+}

@@ -2,7 +2,6 @@ baseURL = '/'
 languageCode = 'en-us'
 theme = "PaperMod"
 title = "Chrispy's Devlog"
-logo = "images/avatar.png"
 
 [params]
     customCSS = ["css/custom.css"]
