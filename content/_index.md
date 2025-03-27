@@ -21,4 +21,6 @@ title: "Home"
   </a>
 </div>
 
+<img src="https://ghchart.rshah.org/chrispyme" alt="GitHub chart" style="display: block; margin: auto;"/>
+
 </div>
