@@ -23,3 +23,16 @@ body {
   width: 30px;
   filter: invert(1);
 }
+
+/* Reduce space between posts on list pages */
+article.post-entry {
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Optional: tighter inner spacing too */
+.post-entry .entry-header,
+.post-entry .entry-content {
+  margin-bottom: 0.8rem;
+}

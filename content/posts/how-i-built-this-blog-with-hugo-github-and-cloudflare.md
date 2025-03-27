@@ -3,6 +3,7 @@ title: "How I Built This Blog with Hugo, GitHub, and Cloudflare"
 date: 2025-03-26
 tags: ["hugo", "cloudflare", "github", "devlog", "setup", "tutorial"]
 categories: ["meta", "guides"]
+weight: 1
 draft: false
 ---
 
