@@ -1,0 +1,33 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+
+# Cloudflare Pages _headers/_redirects build artifacts
+.netlify/
+.netlify/functions-*
+
+# Hugo cache
+/.hugo_build.lock
+
+# Hugo asset pipeline (CSS source maps)
+*.css.map
+
+# Node.js
+node_modules/
+package-lock.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Backup/temp files
+*.bak
+*.tmp
+*.log

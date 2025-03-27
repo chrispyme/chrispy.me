@@ -1,0 +1,21 @@
+/* Make body text slightly smaller */
+body {
+    font-size: 0.95rem;
+  }
+  
+  /* Adjust post titles */
+  h1, h2, h3 {
+    font-size: 1.8rem;
+  }
+  
+  /* Shrink home page title in _index.md */
+  .home h1 {
+    font-size: 1.6rem;
+  }
+  
+  /* Optional: Make markdown paragraphs smaller */
+  .content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  

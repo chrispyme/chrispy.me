@@ -1,0 +1,29 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+theme = "PaperMod"
+title = "Chrispy's Devlog"
+logo = "images/avatar.png"
+
+[params]
+    customCSS = ["css/custom.css"]
+    env = "production"
+    defaultTheme = "dark"
+    disableThemeToggle = true
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
+    
+    [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
