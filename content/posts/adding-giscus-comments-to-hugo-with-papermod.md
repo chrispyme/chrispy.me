@@ -1,13 +1,13 @@
----
++++
+title = "Adding Giscus Comments to Hugo with PaperMod"
+date = 2025-06-20
+description = "Step-by-step guide to adding Giscus (GitHub-powered comments) to a Hugo blog using the PaperMod theme."
+tags = ["hugo", "giscus", "comments", "paperMod", "blog"]
+categories = ["guides"]
+draft = false
+image = "/images/giscus-hugo-banner.png"
++++
 
-title: "Adding Giscus Comments to Hugo with PaperMod"
-date: 2025-06-20T12:00:00Z
-description: "Step-by-step guide to adding Giscus (GitHub-powered comments) to a Hugo blog using the PaperMod theme."
-tags: \["hugo", "giscus", "comments", "paperMod", "blog"]
-categories: \["guides"]
-draft: false
-image: "/images/giscus-hugo-banner.png"
----------------------------------------
 
 
 ![Giscus + Hugo](/images/giscus-hugo-banner.png)
