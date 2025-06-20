@@ -60,6 +60,30 @@
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
   {{- end }}
+
+  <!-- Giscus comments start -->
+  <section id="comments">
+    <h2>Comments</h2>
+    <div id="giscus_container"></div>
+    <script src="https://giscus.app/client.js"
+        data-repo="chrispyme/chrispy.me"
+        data-repo-id="R_kgDOOPZ8YA"
+        data-category="General"
+        data-category-id="DIC_kwDOOPZ8YM4CogO4"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </section>
+  <!-- Giscus comments end -->
+
+
 </article>
 
 {{- end }}{{/* end main */}}
