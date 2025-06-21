@@ -1,11 +1,11 @@
 +++
-title: "How to Add Social Sharing Metadata to Hugo"
-date: 2025-06-20
-description: "Make your Hugo blog share-worthy on social platforms by implementing Open Graph and Twitter Card metadata." 
-tags: ["hugo", "seo", "metadata", "social-sharing", "opengraph"] 
-categories: ["guides"] 
-draft: false 
-image: "/images/hugo-social-metadata-banner.png"
+title = "How to Add Social Sharing Metadata to Hugo"
+date = 2025-06-20
+description = "Make your Hugo blog share-worthy on social platforms by implementing Open Graph and Twitter Card metadata."
+tags = ["hugo", "seo", "metadata", "social-sharing", "opengraph"]
+categories = ["guides"]
+draft = false
+image = "/images/hugo-social-metadata-banner.png"
 +++
 
 ![Add Social Sharing Metadata](/images/hugo-social-metadata-banner.png)
