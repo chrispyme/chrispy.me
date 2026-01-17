@@ -1,0 +1,21 @@
+{{- $imgs := slice -}}
+
+{{- with .Resources.ByType "image" -}}
+  {{- range . -}}
+    {{- $imgs = $imgs | append .Permalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.images -}}
+  {{- range . -}}
+    {{- $imgs = $imgs | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (eq (len $imgs) 0) .Site.Params.images -}}
+  {{- range .Site.Params.images -}}
+    {{- $imgs = $imgs | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $imgs -}}
