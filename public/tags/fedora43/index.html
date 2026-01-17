@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Fedora43 | Chrispy&#39;s Devlog</title>
+
+<meta property="og:title" content="Fedora43" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/tags/fedora43/" />
+<meta property="og:image" content="https://chrispy.me/images/avatar.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fedora43" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://chrispy.me/images/avatar.png" />
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="/tags/fedora43/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fbc75ce9e15528609971f11c84e545c35392fa292ecc9cc19c43f51984cfd6b4.css" integrity="sha256-&#43;8dc6eFVKGCZcfEchOVFw1OS&#43;ikuzJzBnEP1GYTP1rQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="/tags/fedora43/index.xml">
+<link rel="alternate" hreflang="en" href="/tags/fedora43/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="/tags/fedora43/">
+  <meta property="og:site_name" content="Chrispy&#39;s Devlog">
+  <meta property="og:title" content="Fedora43">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fedora43">
+<meta name="twitter:description" content="">
+
+</head>
+
+<body class="list dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Chrispy&#39;s Devlog (Alt + H)">Chrispy&#39;s Devlog</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Fedora43
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Automatically Mount Box.com on Linux Using rclone (Fedora 43)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+Overview I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.
+This page documents a complete, reproducible workflow to:
+Connect Linux to Box.com using rclone Mount Box as a local directory Automatically mount it at boot using systemd user services The reference system is Fedora 43.
+Notes are included where other Linux distributions may differ.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-01-17 00:00:00 +0000 UTC'>January 17, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Automatically Mount Box.com on Linux Using rclone (Fedora 43)" href="/posts/automatically-mount-box-com-on-linux-using-rclone/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="/">Chrispy&#39;s Devlog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+</body>
+
+</html>

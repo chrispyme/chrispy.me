@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Chrispy&#39;s Devlog</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Chrispy&#39;s Devlog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Built This Blog with Hugo, GitHub, and Cloudflare</title>
+      <link>/posts/how-i-built-this-blog-with-hugo-github-and-cloudflare/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/how-i-built-this-blog-with-hugo-github-and-cloudflare/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Setting Up a Blog with Hugo, GitHub, and Cloudflare&#34; loading=&#34;lazy&#34; src=&#34;/images/how-i-built-this-blog-with-hugo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I recently decided to set up a personal devlog — a place to document what I&amp;rsquo;m building, learning, and occasionally breaking. I wanted the experience to be as smooth and distraction-free as possible, and Hugo absolutely delivered.&lt;/p&gt;
+&lt;h2 id=&#34;-why-hugo&#34;&gt;🧱 Why Hugo?&lt;/h2&gt;
+&lt;p&gt;Hugo is a static site generator, but it feels like more than that — it’s blazing fast, easy to install, and built around Markdown, which means I can write posts in the simplest format possible.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Automatically Mount Box.com on Linux Using rclone (Fedora 43)</title>
+      <link>/posts/automatically-mount-box-com-on-linux-using-rclone/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/posts/automatically-mount-box-com-on-linux-using-rclone/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Fedora, Box.com and rclone Banner&#34; loading=&#34;lazy&#34; src=&#34;/images/auto-mount-box-on-linux.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised &lt;strong&gt;rclone&lt;/strong&gt; today.&lt;/p&gt;
+&lt;p&gt;This page documents a &lt;strong&gt;complete, reproducible workflow&lt;/strong&gt; to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connect Linux to Box.com using rclone&lt;/li&gt;
+&lt;li&gt;Mount Box as a local directory&lt;/li&gt;
+&lt;li&gt;Automatically mount it at boot using &lt;strong&gt;systemd user services&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reference system is &lt;strong&gt;Fedora 43&lt;/strong&gt;.&lt;br&gt;
+Notes are included where other Linux distributions may differ.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding Giscus Comments to Hugo with PaperMod</title>
+      <link>/posts/adding-giscus-comments-to-hugo-with-papermod/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/adding-giscus-comments-to-hugo-with-papermod/</guid>
+      <description>Step-by-step guide to adding Giscus (GitHub-powered comments) to a Hugo blog using the PaperMod theme.</description>
+    </item>
+    <item>
+      <title>How to Add Social Sharing Metadata to Hugo</title>
+      <link>/posts/how-to-add-social-sharing-metadata-to-hugo/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/how-to-add-social-sharing-metadata-to-hugo/</guid>
+      <description>Make your Hugo blog share-worthy on social platforms by implementing Open Graph and Twitter Card metadata.</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>/posts/hello-world/</link>
+      <pubDate>Wed, 26 Mar 2025 17:11:00 -0700</pubDate>
+      <guid>/posts/hello-world/</guid>
+      <description>&lt;p&gt;This is my first post with PaperMod!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

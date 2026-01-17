@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hugo on Chrispy&#39;s Devlog</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on Chrispy&#39;s Devlog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Built This Blog with Hugo, GitHub, and Cloudflare</title>
+      <link>/posts/how-i-built-this-blog-with-hugo-github-and-cloudflare/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/how-i-built-this-blog-with-hugo-github-and-cloudflare/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Setting Up a Blog with Hugo, GitHub, and Cloudflare&#34; loading=&#34;lazy&#34; src=&#34;/images/how-i-built-this-blog-with-hugo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I recently decided to set up a personal devlog — a place to document what I&amp;rsquo;m building, learning, and occasionally breaking. I wanted the experience to be as smooth and distraction-free as possible, and Hugo absolutely delivered.&lt;/p&gt;
+&lt;h2 id=&#34;-why-hugo&#34;&gt;🧱 Why Hugo?&lt;/h2&gt;
+&lt;p&gt;Hugo is a static site generator, but it feels like more than that — it’s blazing fast, easy to install, and built around Markdown, which means I can write posts in the simplest format possible.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding Giscus Comments to Hugo with PaperMod</title>
+      <link>/posts/adding-giscus-comments-to-hugo-with-papermod/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/adding-giscus-comments-to-hugo-with-papermod/</guid>
+      <description>Step-by-step guide to adding Giscus (GitHub-powered comments) to a Hugo blog using the PaperMod theme.</description>
+    </item>
+    <item>
+      <title>How to Add Social Sharing Metadata to Hugo</title>
+      <link>/posts/how-to-add-social-sharing-metadata-to-hugo/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/how-to-add-social-sharing-metadata-to-hugo/</guid>
+      <description>Make your Hugo blog share-worthy on social platforms by implementing Open Graph and Twitter Card metadata.</description>
+    </item>
+  </channel>
+</rss>

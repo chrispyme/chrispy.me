@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Automatically Mount Box.com on Linux Using rclone (Fedora 43) | Chrispy&#39;s Devlog</title>
+
+<meta property="og:title" content="Automatically Mount Box.com on Linux Using rclone (Fedora 43)" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/automatically-mount-box-com-on-linux-using-rclone/" />
+<meta property="og:image" content="https://chrispy.me/images/avatar.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Automatically Mount Box.com on Linux Using rclone (Fedora 43)" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="https://chrispy.me/images/avatar.png" />
+
+<meta name="keywords" content="linux, rclone, box, fedora, systemd, box.com, fedora43, automation">
+<meta name="description" content="
+Overview
+I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.
+This page documents a complete, reproducible workflow to:
+
+Connect Linux to Box.com using rclone
+Mount Box as a local directory
+Automatically mount it at boot using systemd user services
+
+The reference system is Fedora 43.
+Notes are included where other Linux distributions may differ.">
+<meta name="author" content="">
+<link rel="canonical" href="/posts/automatically-mount-box-com-on-linux-using-rclone/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fbc75ce9e15528609971f11c84e545c35392fa292ecc9cc19c43f51984cfd6b4.css" integrity="sha256-&#43;8dc6eFVKGCZcfEchOVFw1OS&#43;ikuzJzBnEP1GYTP1rQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/posts/automatically-mount-box-com-on-linux-using-rclone/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:url" content="/posts/automatically-mount-box-com-on-linux-using-rclone/">
+  <meta property="og:site_name" content="Chrispy&#39;s Devlog">
+  <meta property="og:title" content="Automatically Mount Box.com on Linux Using rclone (Fedora 43)">
+  <meta property="og:description" content="
+Overview I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.
+This page documents a complete, reproducible workflow to:
+Connect Linux to Box.com using rclone Mount Box as a local directory Automatically mount it at boot using systemd user services The reference system is Fedora 43.
+Notes are included where other Linux distributions may differ.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-17T00:00:00+00:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Rclone">
+    <meta property="article:tag" content="Box">
+    <meta property="article:tag" content="Fedora">
+    <meta property="article:tag" content="Systemd">
+    <meta property="article:tag" content="Box.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Automatically Mount Box.com on Linux Using rclone (Fedora 43)">
+<meta name="twitter:description" content="
+Overview
+I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.
+This page documents a complete, reproducible workflow to:
+
+Connect Linux to Box.com using rclone
+Mount Box as a local directory
+Automatically mount it at boot using systemd user services
+
+The reference system is Fedora 43.
+Notes are included where other Linux distributions may differ.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Automatically Mount Box.com on Linux Using rclone (Fedora 43)",
+      "item": "/posts/automatically-mount-box-com-on-linux-using-rclone/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Automatically Mount Box.com on Linux Using rclone (Fedora 43)",
+  "name": "Automatically Mount Box.com on Linux Using rclone (Fedora 43)",
+  "description": "\nOverview I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.\nThis page documents a complete, reproducible workflow to:\nConnect Linux to Box.com using rclone Mount Box as a local directory Automatically mount it at boot using systemd user services The reference system is Fedora 43.\nNotes are included where other Linux distributions may differ.\n",
+  "keywords": [
+    "linux", "rclone", "box", "fedora", "systemd", "box.com", "fedora43", "automation"
+  ],
+  "articleBody": "\nOverview I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised rclone today.\nThis page documents a complete, reproducible workflow to:\nConnect Linux to Box.com using rclone Mount Box as a local directory Automatically mount it at boot using systemd user services The reference system is Fedora 43.\nNotes are included where other Linux distributions may differ.\nEnvironment OS: Fedora 43 Init system: systemd Mount method: rclone mount (FUSE) Scope: user-level service Box remote name (variable): mybox Local mount point: ~/mybox All commands below consistently use the variable name mybox.\n1. Install rclone Fedora sudo dnf install -y rclone Verify installation:\nrclone version 2. Configure Box Remote Start the rclone configuration wizard:\nrclone config Configuration summary:\nSelect n → New remote Name: mybox Storage type: box Accept defaults unless you have special requirements Complete OAuth authentication in the browser Verify the remote:\nrclone listremotes Expected output:\nmybox: 3. Test Box Connectivity Before proceeding, verify that the remote works correctly:\nrclone lsd mybox: If folders are listed successfully, authentication and API access are confirmed.\n4. Create Local Mount Directory mkdir -p ~/mybox 5. Create systemd User Service for Auto-Mount 5.1 Create systemd user directory (if missing) mkdir -p ~/.config/systemd/user 5.2 Create the service file nano ~/.config/systemd/user/rclone-mybox.service 5.3 Service definition (Fedora 43 example) [Unit] Description=Rclone Mount Box (mybox) After=network-online.target Wants=network-online.target [Service] Type=simple ExecStart=/usr/bin/rclone mount mybox: %h/mybox \\ --vfs-cache-mode writes \\ --dir-cache-time 1h \\ --poll-interval 1m \\ --umask 002 \\ --log-level INFO ExecStop=/usr/bin/fusermount3 -u %h/mybox Restart=on-failure RestartSec=10 [Install] WantedBy=default.target 6. Linux Distribution Differences fusermount vs fusermount3\nFedora / newer distributions: fusermount3\nOlder Debian / Ubuntu: fusermount\nCheck which binary exists:\ncommand -v fusermount3 || command -v fusermount Update ExecStop accordingly:\nExecStop=/usr/bin/fusermount -u %h/mybox or\nExecStop=/usr/bin/fusermount3 -u %h/mybox 7. Enable and Start the Service ⚠️ Do NOT use sudo with systemctl –user\nReload user units:\nsystemctl --user daemon-reload Enable and start immediately:\nsystemctl --user enable --now rclone-mybox.service Check status:\nsystemctl --user status rclone-mybox.service Expected state:\nActive: active (running) 8. Verify the Mount mount | grep mybox || true ls ~/mybox | head If files are visible, the mount is successful.\n9. Enable Auto-Mount at Boot (Without Login) [Optional] By default, user services start only after login. To mount Box immediately at boot, enable lingering:\nsudo loginctl enable-linger $USER This command only needs to be run once.\n10. Troubleshooting and Logs View service logs:\njournalctl --user -u rclone-mybox.service -e Restart or stop the service:\nsystemctl --user restart rclone-mybox.service systemctl --user stop rclone-mybox.service Conclusion Using rclone + systemd user services, Box.com can be:\nMounted reliably on Linux Exposed as a local filesystem Automatically available at boot Maintained without an official Box client This setup is robust, portable across distributions with minor adjustments, and suitable for long-term daily use.\nSee you in the next post ✌️\n-Chrispy\n",
+  "wordCount" : "476",
+  "inLanguage": "en",
+  "datePublished": "2026-01-17T00:00:00Z",
+  "dateModified": "2026-01-17T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/automatically-mount-box-com-on-linux-using-rclone/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chrispy's Devlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Chrispy&#39;s Devlog (Alt + H)">Chrispy&#39;s Devlog</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Automatically Mount Box.com on Linux Using rclone (Fedora 43)
+    </h1>
+    <div class="post-meta"><span title='2026-01-17 00:00:00 +0000 UTC'>January 17, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><img alt="Fedora, Box.com and rclone Banner" loading="lazy" src="/images/auto-mount-box-on-linux.png"></p>
+<h2 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h2>
+<p>I need to rely on Box.com for daily work, but there is still no official desktop client for Linux, so I decided to try the much-praised <strong>rclone</strong> today.</p>
+<p>This page documents a <strong>complete, reproducible workflow</strong> to:</p>
+<ul>
+<li>Connect Linux to Box.com using rclone</li>
+<li>Mount Box as a local directory</li>
+<li>Automatically mount it at boot using <strong>systemd user services</strong></li>
+</ul>
+<p>The reference system is <strong>Fedora 43</strong>.<br>
+Notes are included where other Linux distributions may differ.</p>
+<hr>
+<h2 id="environment">Environment<a hidden class="anchor" aria-hidden="true" href="#environment">#</a></h2>
+<ul>
+<li>OS: <strong>Fedora 43</strong></li>
+<li>Init system: <strong>systemd</strong></li>
+<li>Mount method: <strong>rclone mount (FUSE)</strong></li>
+<li>Scope: <strong>user-level service</strong></li>
+<li>Box remote name (variable): <code>mybox</code></li>
+<li>Local mount point: <code>~/mybox</code></li>
+</ul>
+<blockquote>
+<p>All commands below consistently use the variable name <code>mybox</code>.</p>
+</blockquote>
+<hr>
+<h2 id="1-install-rclone">1. Install rclone<a hidden class="anchor" aria-hidden="true" href="#1-install-rclone">#</a></h2>
+<h3 id="fedora">Fedora<a hidden class="anchor" aria-hidden="true" href="#fedora">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install -y rclone
+</span></span></code></pre></div><p><strong>Verify installation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rclone version
+</span></span></code></pre></div><h2 id="2-configure-box-remote">2. Configure Box Remote<a hidden class="anchor" aria-hidden="true" href="#2-configure-box-remote">#</a></h2>
+<p>Start the rclone configuration wizard:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rclone config
+</span></span></code></pre></div><p>Configuration summary:</p>
+<ol>
+<li>Select n → New remote</li>
+<li>Name: mybox</li>
+<li>Storage type: box</li>
+<li>Accept defaults unless you have special requirements</li>
+<li>Complete OAuth authentication in the browser</li>
+</ol>
+<p><strong>Verify the remote:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rclone listremotes
+</span></span></code></pre></div><p><strong>Expected output:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mybox:
+</span></span></code></pre></div><h2 id="3-test-box-connectivity">3. Test Box Connectivity<a hidden class="anchor" aria-hidden="true" href="#3-test-box-connectivity">#</a></h2>
+<p>Before proceeding, <strong>verify that the remote works correctly</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rclone lsd mybox:
+</span></span></code></pre></div><p>If folders are listed successfully, authentication and API access are confirmed.</p>
+<h2 id="4-create-local-mount-directory">4. Create Local Mount Directory<a hidden class="anchor" aria-hidden="true" href="#4-create-local-mount-directory">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/mybox
+</span></span></code></pre></div><h2 id="5-create-systemd-user-service-for-auto-mount">5. Create systemd User Service for Auto-Mount<a hidden class="anchor" aria-hidden="true" href="#5-create-systemd-user-service-for-auto-mount">#</a></h2>
+<h3 id="51-create-systemd-user-directory-if-missing">5.1 Create systemd user directory (if missing)<a hidden class="anchor" aria-hidden="true" href="#51-create-systemd-user-directory-if-missing">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/.config/systemd/user
+</span></span></code></pre></div><h3 id="52-create-the-service-file">5.2 Create the service file<a hidden class="anchor" aria-hidden="true" href="#52-create-the-service-file">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano ~/.config/systemd/user/rclone-mybox.service
+</span></span></code></pre></div><h3 id="53-service-definition-fedora-43-example">5.3 Service definition (Fedora 43 example)<a hidden class="anchor" aria-hidden="true" href="#53-service-definition-fedora-43-example">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Rclone Mount Box (mybox)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network-online.target</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Wants</span><span style="color:#f92672">=</span><span style="color:#e6db74">network-online.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/rclone mount mybox: %h/mybox \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    --vfs-cache-mode writes \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    --dir-cache-time 1h \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    --poll-interval 1m \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    --umask 002 \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    --log-level INFO</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/fusermount3 -u %h/mybox</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Restart</span><span style="color:#f92672">=</span><span style="color:#e6db74">on-failure</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RestartSec</span><span style="color:#f92672">=</span><span style="color:#e6db74">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">default.target</span>
+</span></span></code></pre></div><h2 id="6-linux-distribution-differences">6. Linux Distribution Differences<a hidden class="anchor" aria-hidden="true" href="#6-linux-distribution-differences">#</a></h2>
+<p><code>fusermount</code> vs <code>fusermount3</code></p>
+<ul>
+<li>
+<p>Fedora / newer distributions: fusermount3</p>
+</li>
+<li>
+<p>Older Debian / Ubuntu: fusermount</p>
+</li>
+</ul>
+<p>Check which binary exists:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>command -v fusermount3 <span style="color:#f92672">||</span> command -v fusermount
+</span></span></code></pre></div><p>Update ExecStop accordingly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">ExecStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/fusermount -u %h/mybox</span>
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">ExecStop</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/fusermount3 -u %h/mybox</span>
+</span></span></code></pre></div><h2 id="7-enable-and-start-the-service">7. Enable and Start the Service<a hidden class="anchor" aria-hidden="true" href="#7-enable-and-start-the-service">#</a></h2>
+<blockquote>
+<p>⚠️ Do NOT use <code>sudo</code> with systemctl &ndash;user</p>
+</blockquote>
+<p>Reload user units:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl --user daemon-reload
+</span></span></code></pre></div><p>Enable and start immediately:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl --user enable --now rclone-mybox.service
+</span></span></code></pre></div><p>Check status:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl --user status rclone-mybox.service
+</span></span></code></pre></div><p>Expected state:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Active: active <span style="color:#f92672">(</span>running<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="8-verify-the-mount">8. Verify the Mount<a hidden class="anchor" aria-hidden="true" href="#8-verify-the-mount">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount | grep mybox <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>ls ~/mybox | head
+</span></span></code></pre></div><p>If files are visible, the mount is successful.</p>
+<h2 id="9-enable-auto-mount-at-boot-without-login-optional">9. Enable Auto-Mount at Boot (Without Login) [Optional]<a hidden class="anchor" aria-hidden="true" href="#9-enable-auto-mount-at-boot-without-login-optional">#</a></h2>
+<p>By default, user services start only after login.
+To mount Box <strong>immediately</strong> at boot, enable lingering:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo loginctl enable-linger $USER
+</span></span></code></pre></div><p>This command only needs to be run once.</p>
+<h2 id="10-troubleshooting-and-logs">10. Troubleshooting and Logs<a hidden class="anchor" aria-hidden="true" href="#10-troubleshooting-and-logs">#</a></h2>
+<p>View service logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>journalctl --user -u rclone-mybox.service -e
+</span></span></code></pre></div><p>Restart or stop the service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl --user restart rclone-mybox.service
+</span></span><span style="display:flex;"><span>systemctl --user stop rclone-mybox.service
+</span></span></code></pre></div><h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>Using <strong>rclone + systemd</strong> user services, Box.com can be:</p>
+<ul>
+<li>Mounted reliably on Linux</li>
+<li>Exposed as a local filesystem</li>
+<li>Automatically available at boot</li>
+<li>Maintained without an official Box client</li>
+</ul>
+<p>This setup is robust, portable across distributions with minor adjustments, and suitable for long-term daily use.</p>
+<p>See you in the next post ✌️</p>
+<p>-Chrispy</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/linux/">Linux</a></li>
+      <li><a href="/tags/rclone/">Rclone</a></li>
+      <li><a href="/tags/box/">Box</a></li>
+      <li><a href="/tags/fedora/">Fedora</a></li>
+      <li><a href="/tags/systemd/">Systemd</a></li>
+      <li><a href="/tags/box.com/">Box.com</a></li>
+      <li><a href="/tags/fedora43/">Fedora43</a></li>
+      <li><a href="/tags/automation/">Automation</a></li>
+    </ul>
+  </footer>
+
+  
+  <section id="comments">
+    <h2>Comments</h2>
+    <div id="giscus_container"></div>
+    <script src="https://giscus.app/client.js"
+        data-repo="chrispyme/chrispy.me"
+        data-repo-id="R_kgDOOPZ8YA"
+        data-category="General"
+        data-category-id="DIC_kwDOOPZ8YM4CogO4"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </section>
+  
+
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="/">Chrispy&#39;s Devlog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+</body>
+
+</html>

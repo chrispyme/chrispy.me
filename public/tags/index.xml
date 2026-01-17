@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Chrispy&#39;s Devlog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Chrispy&#39;s Devlog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automation</title>
+      <link>/tags/automation/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Box</title>
+      <link>/tags/box/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/box/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Box.com</title>
+      <link>/tags/box.com/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/box.com/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fedora</title>
+      <link>/tags/fedora/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/fedora/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fedora43</title>
+      <link>/tags/fedora43/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/fedora43/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rclone</title>
+      <link>/tags/rclone/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/rclone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systemd</title>
+      <link>/tags/systemd/</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/tags/systemd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>/tags/blog/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comments</title>
+      <link>/tags/comments/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/comments/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Giscus</title>
+      <link>/tags/giscus/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/giscus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metadata</title>
+      <link>/tags/metadata/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/metadata/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Opengraph</title>
+      <link>/tags/opengraph/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/opengraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PaperMod</title>
+      <link>/tags/papermod/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/papermod/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Seo</title>
+      <link>/tags/seo/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/seo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Social-Sharing</title>
+      <link>/tags/social-sharing/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/social-sharing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare</title>
+      <link>/tags/cloudflare/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devlog</title>
+      <link>/tags/devlog/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/devlog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>/tags/github/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Setup</title>
+      <link>/tags/setup/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/setup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>/tags/tutorial/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>/tags/tutorial/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
