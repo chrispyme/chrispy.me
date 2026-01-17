@@ -11,7 +11,7 @@ draft: false
 
 I recently decided to set up a personal devlog — a place to document what I'm building, learning, and occasionally breaking. I wanted the experience to be as smooth and distraction-free as possible, and Hugo absolutely delivered.
 
-## 🧱 Why Hugo?
+## 🍺 Why Hugo?
 
 Hugo is a static site generator, but it feels like more than that — it’s blazing fast, easy to install, and built around Markdown, which means I can write posts in the simplest format possible.
 
